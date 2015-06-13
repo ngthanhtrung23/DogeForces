@@ -66,7 +66,11 @@ $(document).ready(function () {
                 $('#change-title-photo').html('<span ' + dogeStyle + '>Chang foto plz!</span>');
             }
             // Such rating:
-            var fatherElement = $($(el).children()[2]);
+            var fatherId = 1;
+            if ($($(el).children()[0]).hasClass('badge')) {
+                fatherId = 2;
+            }
+            var fatherElement = $($(el).children()[fatherId]);
             var ratingElement = $(fatherElement.children()[0]);
             ratingElement.html(ratingIcon + '  <span ' + dogeStyle + '>Wow, such rating: <span ' + bigRedStyle + '>3333</span></span>');
 
