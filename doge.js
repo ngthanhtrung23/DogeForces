@@ -58,6 +58,7 @@ $(document).ready(function () {
         
         // Info section in profile page
         $('.info').each(function (index, el) {
+            // Not in profile page. Returns!
             if ($(el).parent().hasClass('right') || $(el).parent().hasClass('topic')) {
                 return ;
             }
@@ -74,11 +75,15 @@ $(document).ready(function () {
             contributionElement.html(contributionIcon + '  <span ' + dogeStyle + '>Wow, such contribution: <span ' + bigGreenStyle + '>+200</span></span>');
 
             // Setting plz
+            var onlineId = 2;
+
             var settingElement = $(fatherElement.children()[2]);
-            settingElement.html(settingLink + '<a href="/settings/general"' + dogeStyle + '> Setting plz</a>');
+            if (settingElement.text().indexOf('Change settings') >= 0) {
+                settingElement.html(settingLink + '<a href="/settings/general"' + dogeStyle + '> Setting plz</a>');
+                onlineId += 1;
+            }
 
             // Online, wow
-            var onlineId = 3;
             if ($(fatherElement.children()[onlineId]).text().indexOf('Last visit') < 0) {
                 // user has email
                 onlineId += 1;
