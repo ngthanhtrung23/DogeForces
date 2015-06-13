@@ -58,6 +58,9 @@ $(document).ready(function () {
         
         // Info section in profile page
         $('.info').each(function (index, el) {
+            if ($(el).parent().hasClass('right') || $(el).parent().hasClass('topic')) {
+                return ;
+            }
             if ($('#change-title-photo')) {
                 $('#change-title-photo').html('<span ' + dogeStyle + '>Chang foto plz!</span>');
             }

@@ -3,7 +3,7 @@
 
   "name": "DogeForces",
   "description": "a Doge theme for Codeforces",
-  "version": "1.0",
+  "version": "1.1",
 
   "content_scripts": [
       {
