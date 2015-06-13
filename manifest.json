@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "DogeForces",
+  "description": "a Doge theme for Codeforces",
+  "version": "1.0",
+
+  "content_scripts": [
+      {
+        "matches": ["http://codeforces.com/*","https://codeforces.com/*"],
+        "js": ["jquery.js", "doge.js"]
+      }
+    ]
+}
