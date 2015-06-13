@@ -13,20 +13,54 @@ $(document).ready(function () {
     var logoElement = $($($($('#header').children()[0]).children()[0]).children()[0]);
     logoElement.attr('src', 'http://i62.tinypic.com/xgjrxf.png').attr('width', '300');
 
-    // Change name from <username> to Doge <username>
+    // Change name (near login/logout) from <username> to Doge <username>
     var nameElement = $($($('.lang-chooser').children()[1]).children()[0]);
     var username = nameElement.html();
 
+    // Everyone is red!
+    $('.rated-user').each(function (id, el) {
+        $(el)
+        .removeClass('user-orange')
+        .removeClass('user-violet')
+        .removeClass('user-blue')
+        .removeClass('user-green')
+        .removeClass('user-gray')
+        .removeClass('user-admin')
+        .removeClass('user-black')
+        .addClass('user-red');
+    });
+
     console.log('username = ' + username);
     nameElement.html('<span ' + dogeStyle + '><span ' + bigRedStyle + '>Doge</span></span> ' + username);
+
+    // Main menu
+    $('.main-menu-list').children().each(function (id, el) {
+        var element = $($(el).children()[0]);
+        var text = element.text();
+        text = text.replace('Home', 'Hom');
+        text = text.replace('Contests', 'Contez');
+        text = text.replace('Gym', 'Gim');
+        text = text.replace('Problemset', 'Poblemzet');
+        text = text.replace('Groups', 'Grupz');
+        text = text.replace('Rating', 'Ratin');
+        text = text.replace('5 years!', '5 irz!');
+        element.text(text);
+    });
 
     // In profile page:
     if ($('.info')) {
         // User rank (Master, Candiate master...) --> Doge
         $('.user-rank').each(function (index, el) { $(el).html('<span ' + dogeStyle + '><span ' + bigRedStyle + '>Doge</span></span>'); });
+
+        // City, Country, Organization
+        $($('.main-info').children()[2]).html('<span ' + dogeStyle + '>Doge land</span>');
+
         
         // Info section in profile page
         $('.info').each(function (index, el) {
+            if ($('#change-title-photo')) {
+                $('#change-title-photo').html('<span ' + dogeStyle + '>Chang foto plz!</span>');
+            }
             // Such rating:
             var fatherElement = $($(el).children()[2]);
             var ratingElement = $(fatherElement.children()[0]);
@@ -47,11 +81,38 @@ $(document).ready(function () {
                 onlineId += 1;
             }
             var onlineElement = $(fatherElement.children()[onlineId]);
-            onlineElement.html('<span ' + dogeStyle + '>Last visit: <span ' + bigGreenStyle + '>online, wow!</span></span>');
+            onlineElement.html('<span ' + dogeStyle + '>Haz visit? <span ' + bigGreenStyle + '>online, wow!</span></span>');
 
+            // registered
             var registerId = onlineId + 1;
             var registerElement = $(fatherElement.children()[registerId]);
-            registerElement.html(registerElement.text() + ', such old, wow!');
+            registerElement.html('<span ' + dogeStyle + '>Haz' + registerElement.text() + ', such old, wow!</span>');
+
+            // blog entries
+            var blogId = registerId + 1;
+            var blogElement = $(fatherElement.children()[blogId]);
+            var blogLink = $(blogElement.children()[1]);
+            blogLink.text('Such blog entries').attr('style', "font-family: 'Comic Sans MS'");
+            var commentLink = $(blogElement.children()[2]);
+            commentLink.text('wow!').attr('style', "font-family: 'Comic Sans MS'");
+
+            // write new entries
+            var entryId = blogId + 1;
+            var entryElement = $(fatherElement.children()[entryId]);
+
+            var talkId = entryId;
+            if (entryElement.text().indexOf('Write new entry') >= 0) {
+                // my own profile
+                var entryLink = $(entryElement.children()[1]);
+                entryLink.text('Entry plz').attr('style', "font-family: 'Comic Sans MS'");
+
+                talkId += 1;
+            }
+
+            // talk
+            var talkElement = $(fatherElement.children()[talkId]);
+            var talkLink = $(talkElement.children()[1]);
+            talkLink.text('Talk plz').attr('style', "font-family: 'Comic Sans MS'");
         });
         
         // Avatar
