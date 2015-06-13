@@ -2,7 +2,7 @@
 
 Of course, everyone loves Doge. That is why this Google Chrome extension changes Codeforces to DogeForces. Here is a screenshot:
 
-![ ] (http://codeforces.com/predownloaded/d7/4a/d74a834c9e2667b976d1bbca044695e3614c06bd.png)
+![ ] (http://i62.tinypic.com/2dv95ad.png)
 
 ## Functionalities:
 
