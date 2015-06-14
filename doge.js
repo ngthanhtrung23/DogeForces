@@ -59,9 +59,11 @@ $(document).ready(function () {
         // Info section in profile page
         $('.info').each(function (index, el) {
             // Not in profile page. Returns!
-            if ($(el).parent().hasClass('right') ||         // in comment of posts
-                    $(el).parent().hasClass('topic') ||     // in posts
-                    $(el).parent().prop('tagName') === 'TD' // in user comments page
+            if ($(el).parent().hasClass('right') ||               // in comment of posts
+                    $(el).parent().hasClass('topic') ||           // in posts
+                    $(el).parent().prop('tagName') === 'TD' ||    // in user comments page
+                    document.title === "Settings - Codeforces" || // settings page
+                    document.title === "Address - Codeforces"
             ) {
                 return ;
             }
